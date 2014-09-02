@@ -1,0 +1,21 @@
+{% extends "main.html" %}
+{% load staticfiles %}
+{% block films_view %}
+
+     <h1>{{ film.film_name }}</h1>
+    <p>{{ film.film_user }} || {{ film.film_date_public }} || {{ film.film_like }}</p>
+
+
+   <ul id="menu">
+       <li><a href="/film/get/{{ film.id }}" >Фильм</a></li>
+       <li><a href="/film/get/{{ film.id }}/news/">История</a> </li>
+       <li><a href="/film/get/{{ film.id }}/users/">Создатели</a> </li>
+   </ul>
+
+
+<br><br>
+    <p>Режиссер: {{ film.film_created_users }}</p>
+
+     <a href="#">{{ id_yotube }}</a>
+
+{% endblock %}

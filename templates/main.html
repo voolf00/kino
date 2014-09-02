@@ -1,0 +1,78 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head lang="rus">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/js/jQuery/jquery-ui-1.11.1/jquery-ui.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+    <script src="/static/js/jQuery/jquery-2.1.1.js"></script>
+    <script src="/static/js/jQuery/jquery-ui-1.11.1/jquery-ui.min.js"></script>
+    <script src="/static/js/customScript.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static "css/foundation.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/custom.css" %}">
+    <title>К — КИНО</title>
+</head>
+<body class="row">
+
+
+
+<div class="top-bar">
+    <section class="top-bar-section ">
+        <ul>
+            <li><a href="/">K — КИНО</a></li>
+            <li><a href="/film/">Фильмы</a></li>
+            <li><a href="/articles/">Новости</a></li>
+            <li><a href="/about/">О проекте</a></li>
+        </ul>
+        <ul class="right">
+            {% if username %}
+                {% if title == 'film' %}
+                    <li><a href="/film/addfilm">добавить фильм</a></li>
+                {% endif %}
+
+                {% if is_superUser and title == 'article' %}
+                    <li><a href="/articles/addarticle" id="openFormArticle">добавить новость</a></li>
+                {% endif %}
+                <li><a href="/auth/logout"> выйти из {{ username }}</a></li>
+
+
+            {% else %}
+
+                <li><a href="/auth/register">Регистрация</a></li>
+                <li><a href="/auth/login">войти</a></li>
+            {% endif %}
+        </ul>
+    </section>
+
+</div>
+
+<div class="content">
+
+    {% block article %}{% endblock %}
+    {% block films_view %}{% endblock %}
+    {% block login %}{% endblock %}
+    {% block image %}{% endblock %}
+
+</div>
+
+<hr>
+<div class="down">
+    <p><a href="http://vk.com/cashka">Клыгач Александр</a></p>
+</div>
+
+{% if is_superUser and title == 'article' %}
+<form id="newArticle"  action="/articles/addarticle" method="POST">
+        {% csrf_token %}
+         <label for="title">Название статьи</label>
+        <input type="text" name="article_title" id="article_title" value="{{ article_title }}">
+        <label for="text">текст статьи</label>
+        <input type="text" name="article_text" id="article_text" value="{{ article_text }}">
+        <input type="submit" class="buttom" value="Сохранить">
+
+    </form>
+{% endif %}
+
+
+
+</body>
+</html>

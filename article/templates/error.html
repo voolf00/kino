@@ -1,0 +1,29 @@
+{% extends 'main.html' %}
+{% load staticfiles %}
+{% block article %}
+  {{ error }}
+
+    {% if error == 'addArticle' %}
+        <br>
+        <div class="columns">
+        <p>Только зарегистрированные АДмины могут</p>
+        <p>А ты не можешь</p>
+        </div>
+    {% endif %}
+
+    {% if error = 'delete_article' %}
+
+        <br>
+        <div class="columns">
+        <p>Вы не можете удалять новости, так как не являетесь админом или создателем этой ноости</p>
+
+        </div>
+
+    {% endif %}
+    {% if error == 'deleteFilm' %}
+        <div class="columns">
+
+        <p>Вы не можете удалять фильм, так как не явлаетемь admin-ом или пользователем данного фильма</p>
+        </div>
+    {% endif %}
+{% endblock %}

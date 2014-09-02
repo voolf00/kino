@@ -1,0 +1,21 @@
+{% extends 'main.html' %}
+{$ {% block films_view %}
+     <div class="columns">
+    <br>
+    {% for film in top_likes %}
+        <div class="linkblock" onclick="location.href='/film/get/{{ film.id }}'">
+        <a href="/film/get/{{ film.id}}">{{ film.film_name }}</a>
+        <p>{{ film.film_text }}</p>
+        <h0>{{ username }} || {{ film.film_date_public }} || {{ film.film_like }}</h0>
+        </div>
+        <hr>
+    {% endfor %}
+
+     {% for article in articles %}
+          <div class="linkblock" onclick="location.href='/articles/get/{{ article.id }}'">
+          <a href="/articles/get/{{ article.id}}">{{ article.article_title  }}</a>
+         </div>
+
+     {% endfor %}
+     </div>
+{% endblock %}

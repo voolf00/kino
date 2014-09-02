@@ -1,0 +1,60 @@
+{% extends 'main.html' %}
+{% load staticfiles %}
+{% block films_view %}
+
+
+    <br><br>
+    <form action="/film/addfilm" method="post">
+        {% csrf_token %}
+
+
+        <label for="id_film_name">Название Фильма:</label>
+        <input id="id_film_name" maxlength="300" name="film_name" type="text"/>
+
+        <label for="id_film_sided_id">Сслыка ролика (youtube.com, vimeo.com): </label>
+        <input id="id_film_sided_id" maxlength="200" name="film_sided_id" type="text"/>
+
+        <label form="film_jenres">Жанр:</label>
+        <select multiple="multiple" style="height: 250px; width:300px " id="film_jenres" name="film_jenres">
+            <option value="1">Анимэ</option>
+            <option value="2">Биография</option>
+            <option value="3">Боевик</option>
+            <option value="4">Вестерн</option>
+            <option value="5">Военный</option>
+            <option value="6">Детектив</option>
+            <option value="7">Документальный</option>
+            <option value="8">Драма</option>
+            <option value="9">История</option>
+            <option value="10">Комедия</option>
+            <option value="11">Криминал</option>
+            <option value="12">Мелодрама</option>
+            <option value="13">Музыка</option>
+            <option value="14">Мультфильм</option>
+            <option value="15">Мюзикл</option>
+            <option value="16">Приключения</option>
+            <option value="17">Семейный</option>
+            <option value="18">Спорт</option>
+            <option value="19">Триллер</option>
+            <option value="20">Ужасы</option>
+            <option value="21">Фантастика</option>
+            <option value="22">Фэнтези</option>
+            <option value="23">Реклама</option>
+        </select>
+        <label for="text">Создатели фильма: </label>
+        <input type="text" name="film_created_users" id="film_created_users">
+
+        <label for="text">Год выпуска: </label>
+        <input id="film_year" name="film_year" type="number"/>
+
+        <label for="text">Награды: </label>
+        <input type="text" name="film_award" id="film_award">
+
+        <label for="text">Краткое описание фильма: </label>
+        <input type="text" name="film_text" id="film_text">
+
+
+        <input type="submit" class="button" value="Сохранить">
+    </form>
+
+
+{% endblock %}
