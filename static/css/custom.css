@@ -35,7 +35,7 @@
 .news {
 	position:relative;
 	width: 470px;
-    height: 400px;
+    height: 390px;
 	margin-top: 10px;
 	margin-left: 20px;
 	margin-bottom: 10px;
@@ -43,13 +43,13 @@
 	padding-right: 20px;
 	padding-left: 20px;
 	padding-bottom: 0px;
-	background: #ffffff;
+	background: #f7f7f7;
 	border: 1px solid #dddddd;
 	display: inline-block;
 	float: left;
 	border-radius: 5px;
 
-	border-bottom: 3px solid #dedede;
+
 
 }
 .news img {
@@ -58,7 +58,7 @@
 	position:absolute;
 	top: 10px;
 	left: 0px;
-	clip:rect(45px 480px 309px 0px);
+	clip:rect(45px 480px 307px 0px);
     /*width:428px;*/
     /*height: 241px;*/
     /*clip: rect(px, 70px, 70px, 0px);*/
@@ -67,7 +67,7 @@
 
 
 .news:hover {
-	background-color: #f7f7f7;
+	background-color: #f0f0f0;
     cursor: pointer;
 }
 /* ------------------ NEWS HERE -------------------*/

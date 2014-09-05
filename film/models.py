@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.db import models
 from django.contrib.auth.models import User
 import datetime
@@ -36,17 +37,17 @@ class Film (models.Model):
         verbose_name_plural = "Фильмы"
 
     film_name = models.CharField(max_length=300) #*
-    film_created_users = models.TextField(default="", blank=True)
+    film_english_name = models.CharField(max_length=300, default="")
     film_jenres = models.ManyToManyField(Jenre, related_name="film", verbose_name=u"Жанр") #*
     film_text = models.TextField() #*
     film_year = models.IntegerField(default=datetime.datetime.today().year)
     film_date_public = models.DateTimeField(default=datetime.datetime.today())
     film_user = models.ForeignKey(User, related_name="film", verbose_name="Пользвоатель")
-    film_award = models.TextField(default="—", blank=True)
+    film_award = models.TextField(default="-", blank=True)
     film_like = models.IntegerField(default=0, blank=True, null=True, verbose_name="лайки")
     film_sided_site = models.IntegerField(default=0)# или 0 или 1 или 2 отсутсвует, youtube,vimeo
     film_sided_id = models.CharField(max_length=200)
-    film_country = models.CharField(max_length=200, default="—") #*
+    film_country = models.CharField(max_length=200, default="-") #*
     film_status = models.ForeignKey(Status, default=2)
     film_money_create = models.IntegerField(default=0, blank=True)
     film_is_moderator = models.BooleanField(default=False, blank=True)
@@ -54,6 +55,24 @@ class Film (models.Model):
 
     def __unicode__(self):
         return self.film_name
+
+
+class AboutCreatedUser (models.Model):
+    class Meta():
+        db_table = "about_created_user"
+        verbose_name = "Создатель"
+        verbose_name_plural = "Создатели"
+    film_id = models.ForeignKey(Film)
+    film_rejisser = models.CharField(max_length=256, default="-")
+    film_scenarii = models.CharField(max_length=256, default="-")
+    film_produsser = models.CharField(max_length=256, default="-")
+    film_compozitor = models.CharField(max_length=256, default="-")
+    film_montaj = models.CharField(max_length=256, default="-")
+    film_actors = models.TextField(default="-")
+
+    def __unicode__(self):
+        return self.film_id
+
 
 
 

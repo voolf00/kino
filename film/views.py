@@ -1,6 +1,6 @@
 from django.shortcuts import render_to_response, redirect
 from django.http.response import Http404
-from film.models import Film, Film_comment
+from film.models import Film, Film_comment, AboutCreatedUser
 from django.core.exceptions import ObjectDoesNotExist
 # from film.forms import
 from article.forms import ArticleForm
@@ -44,6 +44,12 @@ def film(request, film_id):
     args['film'] = Film.objects.get(id=film_id)
     args['username'] = auth.get_user(request).username
     return render_to_response("film.html", args)
+
+def filmAbout(request, film_id):
+    args = {}
+    args['title'] = 'film'
+    args['film'] = Film.objects.get(id=film_id)
+    args['created_users'] = AboutCreatedUser.objects.get(film_id=film_id)
 
 def filmUsers(request, film_id):
     args = {}
@@ -102,6 +108,7 @@ def filmAdd(request):
                     film_add.film_sided_id = vimeo
                 if vimeo == -1 and youtube == -1:
                     return render_to_response('error.html', {'error': "Cсылка не верна"})
+
                 film_add.save()
                 form.save_m2m()
                 return redirect('/film/')

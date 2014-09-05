@@ -14,10 +14,10 @@
 </head>
 <body class="row">
 
-
+<div>
 
 <div class="top-bar">
-    <section class="top-bar-section ">
+    <section class="top-bar-section">
         <ul>
             <li><a href="/">K — КИНО</a></li>
             <li><a href="/film/">Фильмы</a></li>
@@ -55,15 +55,14 @@
 
 </div>
 
-<hr>
 <div class="down">
     <p><a href="http://vk.com/cashka">Клыгач Александр</a></p>
 </div>
 
 {% if is_superUser and title == 'article' %}
-<form id="newArticle"  action="/articles/addarticle" method="POST">
+    <form id="newArticle" action="/articles/addarticle" method="POST">
         {% csrf_token %}
-         <label for="title">Название статьи</label>
+        <label for="title">Название статьи</label>
         <input type="text" name="article_title" id="article_title" value="{{ article_title }}">
         <label for="text">текст статьи</label>
         <input type="text" name="article_text" id="article_text" value="{{ article_text }}">
@@ -72,7 +71,6 @@
     </form>
 {% endif %}
 
-
-
+</div>
 </body>
 </html>
