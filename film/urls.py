@@ -6,6 +6,7 @@ from django.conf.urls import patterns, include, url
 urlpatterns = patterns('',
 
     url(r'^addfilm', 'film.views.filmAdd'),
+    url(r'page/(\d+)', 'film.views.films'),
     url(r'^get/(\d+)/users', 'film.views.filmUsers'),
     url(r'^get/(\d+)/delete', 'film.views.filmDel'),
     url(r'^get/(\d+)', 'film.views.film'),

@@ -33,7 +33,9 @@
 }
 
 .news {
+	position:relative;
 	width: 470px;
+    height: 400px;
 	margin-top: 10px;
 	margin-left: 20px;
 	margin-bottom: 10px;
@@ -42,20 +44,28 @@
 	padding-left: 20px;
 	padding-bottom: 0px;
 	background: #ffffff;
-	border: 1px solid #eeeeee;
+	border: 1px solid #dddddd;
 	display: inline-block;
 	float: left;
 	border-radius: 5px;
+
 	border-bottom: 3px solid #dedede;
 
 }
+.news img {
 
-
-
-#img{
-    width: 428px;
-    height: 241px;
+    margin:0;
+	position:absolute;
+	top: 10px;
+	left: 0px;
+	clip:rect(45px 480px 309px 0px);
+    /*width:428px;*/
+    /*height: 241px;*/
+    /*clip: rect(px, 70px, 70px, 0px);*/
 }
+
+
+
 .news:hover {
 	background-color: #f7f7f7;
     cursor: pointer;
@@ -78,11 +88,13 @@
 	font-weight: normal;
 }
 .news p {
+    position: relative;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
 	color: #666666;
 	line-height: 20px;
-	padding-top: 0;
+
+	padding-top: 130px;
 	padding-right: 0;
 	padding-left: 0;
 }
@@ -99,6 +111,7 @@
 .news p span a:hover {
 	text-decoration: none;
 }
+
 
 .content {
 	width: 980px;
