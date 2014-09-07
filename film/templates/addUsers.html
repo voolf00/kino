@@ -1,0 +1,48 @@
+{% extends 'main.html' %}
+{% load staticfiles %}
+{% block films_view %}
+
+
+    <br><br>
+    <form action="/film/get/{{ film_id }}/users/add" method="post">
+        <h2>{{ film_name }}</h2>
+        {% csrf_token %}
+
+
+{#                {{ film_created_users_form }}#}
+        <tr>
+            <th><label for="id_film_rejisser">Режиссер:</label></th>
+            <td><input id="id_film_rejisser" maxlength="256" name="film_rejisser" type="text" value="-"/></td>
+        </tr>
+        <tr>
+            <th><label for="id_film_scenarii">Сценарий:</label></th>
+            <td><input id="id_film_scenarii" maxlength="256" name="film_scenarii" type="text" value="-"/></td>
+        </tr>
+        <tr>
+            <th><label for="id_film_produsser">Продюссер:</label></th>
+            <td><input id="id_film_produsser" maxlength="256" name="film_produsser" type="text" value="-"/></td>
+        </tr>
+        <tr>
+            <th><label for="id_film_operatior">Оператор:</label></th>
+            <td><input id="id_film_operatior" maxlength="256" name="film_operatior" type="text" value="-"/></td>
+        </tr>
+        <tr>
+            <th><label for="id_film_compozitor">Композитор:</label></th>
+            <td><input id="id_film_compozitor" maxlength="256" name="film_compozitor" type="text" value="-"/></td>
+        </tr>
+        <tr>
+            <th><label for="id_film_montaj">Мотнаж:</label></th>
+            <td><input id="id_film_montaj" maxlength="256" name="film_montaj" type="text" value="-"/></td>
+        </tr>
+        <tr>
+            <th><label for="id_film_actors">Актеры:</label></th>
+            <td><textarea cols="40" id="id_film_actors" name="film_actors" rows="10">
+                -</textarea></td>
+        </tr>
+
+
+        <input type="submit" class="button" value="Сохранить">
+    </form>
+
+
+{% endblock %}

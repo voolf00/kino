@@ -1,0 +1,66 @@
+{% extends 'main.html' %}
+{% load staticfiles %}
+{% block films_view %}
+
+
+    <br><br>
+    <form action="/film/get/{{ film.id }}/edit" method="post">
+        {% csrf_token %}
+
+
+        <label for="id_film_name">Название Фильма:</label>
+        <input id="id_film_name" maxlength="300" name="film_name" type="text" value="{{ film.film_name }}"/>
+
+        <label for="id_film_sided_id">Сслыка ролика (youtube.com, vimeo.com): </label>
+    {% if film.film_sided_site == 2 %}
+        <input id="id_film_sided_id" maxlength="200" name="film_sided_id" type="text" value="http://www.youtube.com/watch?v={{ film.film_sided_id }}"/>
+    {% endif %}
+
+    {% if film.film_sided_site == 3 %}
+        <input id="id_film_sided_id" maxlength="200" name="film_sided_id" type="text" value="http://www.vimeo.com/{{ film.film_sided_id }}"/>
+    {% endif %}
+        <p>
+
+        </p>
+        <label form="film_jenres">Жанр:</label>
+        <select multiple="multiple" style="height: 250px; width:300px " id="film_jenres" name="film_jenres">
+            <option {% for janr in film.film_jenres.all %}{% if janr.id == 1 %}selected="selected"{% endif %}{% endfor %} value="1">Анимэ</option>
+            <option {% for janr in film.film_jenres.all %}{% if janr.id == 2 %}selected="selected"{% endif %}{% endfor %} value="2">Биография</option>
+            <option {% for janr in film.film_jenres.all %}{% if janr.id == 3 %}selected="selected"{% endif %}{% endfor %} value="3">Боевик</option>
+            <option {% for janr in film.film_jenres.all %}{% if janr.id == 4 %}selected="selected"{% endif %}{% endfor %} value="4">Вестерн</option>
+            <option {% for janr in film.film_jenres.all %}{% if janr.id == 5 %}selected="selected"{% endif %}{% endfor %} value="5">Военный</option>
+            <option {% for janr in film.film_jenres.all %}{% if janr.id == 6 %}selected="selected"{% endif %}{% endfor %} value="6">Детектив</option>
+            <option {% for janr in film.film_jenres.all %}{% if janr.id == 7 %}selected="selected"{% endif %}{% endfor %} value="7">Документальный</option>
+            <option {% for janr in film.film_jenres.all %}{% if janr.id == 8 %}selected="selected"{% endif %}{% endfor %} value="8">Драма</option>
+            <option {% for janr in film.film_jenres.all %}{% if janr.id == 9 %}selected="selected"{% endif %}{% endfor %} value="9">История</option>
+            <option {% for janr in film.film_jenres.all %}{% if janr.id == 10 %}selected="selected"{% endif %}{% endfor %} value="10">Комедия</option>
+            <option {% for janr in film.film_jenres.all %}{% if janr.id == 11 %}selected="selected"{% endif %}{% endfor %} value="11">Криминал</option>
+            <option {% for janr in film.film_jenres.all %}{% if janr.id == 12 %}selected="selected"{% endif %}{% endfor %} value="12">Мелодрама</option>
+            <option {% for janr in film.film_jenres.all %}{% if janr.id == 13 %}selected="selected"{% endif %}{% endfor %} value="13">Музыка</option>
+            <option {% for janr in film.film_jenres.all %}{% if janr.id == 14 %}selected="selected"{% endif %}{% endfor %} value="14">Мультфильм</option>
+            <option {% for janr in film.film_jenres.all %}{% if janr.id == 15 %}selected="selected"{% endif %}{% endfor %} value="15">Мюзикл</option>
+            <option {% for janr in film.film_jenres.all %}{% if janr.id == 16 %}selected="selected"{% endif %}{% endfor %} value="16">Приключения</option>
+            <option {% for janr in film.film_jenres.all %}{% if janr.id == 17 %}selected="selected"{% endif %}{% endfor %} value="17">Семейный</option>
+            <option {% for janr in film.film_jenres.all %}{% if janr.id == 18 %}selected="selected"{% endif %}{% endfor %} value="18">Спорт</option>
+            <option {% for janr in film.film_jenres.all %}{% if janr.id == 19 %}selected="selected"{% endif %}{% endfor %} value="19">Триллер</option>
+            <option {% for janr in film.film_jenres.all %}{% if janr.id == 20 %}selected="selected"{% endif %}{% endfor %} value="20">Ужасы</option>
+            <option {% for janr in film.film_jenres.all %}{% if janr.id == 21 %}selected="selected"{% endif %}{% endfor %} value="21">Фантастика</option>
+            <option {% for janr in film.film_jenres.all %}{% if janr.id == 22 %}selected="selected"{% endif %}{% endfor %} value="22">Фэнтези</option>
+            <option {% for janr in film.film_jenres.all %}{% if janr.id == 23 %}selected="selected"{% endif %}{% endfor %} value="23">Реклама</option>
+        </select>
+
+        <label for="text">Год выпуска: </label>
+        <input id="film_year" name="film_year" type="number" value="{{ film.film_year }}"/>
+
+        <label for="text">Награды: </label>
+        <input type="text" name="film_award" id="film_award" value="{{ film.film_award }}">
+
+        <label for="text">Краткое описание фильма: </label>
+        <input type="text" name="film_text" id="film_text" value="{{ film.film_text }}">
+
+
+        <input type="submit" class="button" value="Сохранить">
+    </form>
+
+
+{% endblock %}

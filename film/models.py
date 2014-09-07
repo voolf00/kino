@@ -63,12 +63,13 @@ class AboutCreatedUser (models.Model):
         verbose_name = "Создатель"
         verbose_name_plural = "Создатели"
     film_id = models.ForeignKey(Film)
-    film_rejisser = models.CharField(max_length=256, default="-")
-    film_scenarii = models.CharField(max_length=256, default="-")
-    film_produsser = models.CharField(max_length=256, default="-")
-    film_compozitor = models.CharField(max_length=256, default="-")
-    film_montaj = models.CharField(max_length=256, default="-")
-    film_actors = models.TextField(default="-")
+    film_rejisser = models.CharField(max_length=256, default="-", blank=True)
+    film_scenarii = models.CharField(max_length=256, default="-", blank=True)
+    film_produsser = models.CharField(max_length=256, default="-", blank=True)
+    film_operatior = models.CharField(max_length=256, default="-", blank=True)
+    film_compozitor = models.CharField(max_length=256, default="-", blank=True)
+    film_montaj = models.CharField(max_length=256, default="-", blank=True)
+    film_actors = models.TextField(default="-", blank=True)
 
     def __unicode__(self):
         return self.film_id

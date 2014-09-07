@@ -9,13 +9,22 @@
    <ul id="menu">
        <li><a href="/film/get/{{ film.id }}" >Фильм</a></li>
        <li><a href="/film/get/{{ film.id }}/news/">История</a> </li>
-       <li><a href="/film/get/{{ film.id }}/users/">Создатели</a> </li>
+       <li><a href="/film/get/{{ film.id }}/users/">Описание</a> </li>
    </ul>
-
-
 <br><br>
-    <p>Режиссер: {{ film.film_created_users }}</p>
 
-     <a href="#">{{ id_yotube }}</a>
+    <hr>
+
+    <p>Режиссёр: {{ film_users.film_rejisser }}</p>
+    <p>Сценарий: {{ film_users.film_scenarii }}</p>
+    <p>Подюссер: {{  film_users.film_produsser }}</p>
+    <p>Оператор: {{ film_users.film_operatior }}</p>
+    <p>Композитор: {{  film_users.film_compozitor }}</p>
+    <p>Монтаж: {{  film_users.film_montaj }}</p>
+    <p>Актеры: {{  film_users.film_actors }}</p>
+    <hr>
+
+    <a href="/film/get/{{ film.id }}/users/edit">Редактировать создателей</a> ||
+    <a href="/film/get/{{ film.id }}/users/delete">Удалить создателей</a>
 
 {% endblock %}

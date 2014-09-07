@@ -10,3 +10,8 @@ class Film_comment_Form(ModelForm):
     class Meta():
 
         model = Film_comment
+
+class Film_About_created_Users_Form(ModelForm):
+    class Meta():
+        model = AboutCreatedUser
+        fields = {'film_compozitor', 'film_actors', 'film_rejisser','film_operatior','film_scenarii', 'film_produsser', 'film_montaj'}

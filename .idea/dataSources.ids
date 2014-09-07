@@ -13,14 +13,15 @@
       <index name="Profile_2e997215" unique="true" columns="profile_user_id"/>
     </table>
     <table name="about_created_user" schema="" catalog="" type="TABLE">
-      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
-      <column name="film_id_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="film_compozitor" sqlType="VARCHAR(256)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="film_actors" sqlType="TEXT" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
       <column name="film_rejisser" sqlType="VARCHAR(256)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="film_operatior" sqlType="VARCHAR(256)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="true" jdbcType="4"/>
+      <column name="film_id_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
       <column name="film_scenarii" sqlType="VARCHAR(256)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
       <column name="film_produsser" sqlType="VARCHAR(256)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
-      <column name="film_compozitor" sqlType="VARCHAR(256)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
       <column name="film_montaj" sqlType="VARCHAR(256)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
-      <column name="film_actors" sqlType="TEXT" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
       <primary-key columns="id"/>
       <index name="about_created_users_cf7c7284" unique="true" columns="film_id_id"/>
     </table>

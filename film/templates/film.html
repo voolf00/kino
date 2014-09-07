@@ -9,7 +9,7 @@
    <ul id="menu">
        <li><a href="" >Фильм</a></li>
        <li><a href="/film/get/{{ film.id }}/news/">История</a> </li>
-       <li><a href="/film/get/{{ film.id }}/users/">Создатели</a> </li>
+       <li><a href="/film/get/{{ film.id }}/users/">{% if add_users %}Описание{% else %}Добавить создателей{% endif %}</a> </li>
 
    </ul>
 
@@ -29,6 +29,6 @@
     </div>
     <br>
 
-    <a href="/film/get/{{ film.id }}/delete">Удалить фильм</a>
+    <a href="/film/get/{{ film.id }}/delete">Удалить фильм</a> || <a href="/film/get/{{ film.id }}/edit"> Редактировать</a>
 </div>
 {% endblock %}
