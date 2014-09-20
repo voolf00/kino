@@ -56,9 +56,12 @@
 </div>
 
 <div class="down">
+
     <p><a href="http://vk.com/cashka">Клыгач Александр</a></p>
 </div>
 
+
+{#-----------------------------------Gquery----------------------------------------------------------#}
 {% if is_superUser and title == 'article' %}
     <form id="newArticle" action="/articles/addarticle" method="POST">
         {% csrf_token %}
@@ -69,6 +72,7 @@
         <input type="submit" class="buttom" value="Сохранить">
 
     </form>
+{#-----------------------------------Gquery----------------------------------------------------------#}
 {% endif %}
 
 </div>

@@ -1,124 +1,266 @@
-#menu{
-    list-style:none;
-    #width:950px;
-    padding:0;
+#menu {
+    list-style: none;
+    #width: 950px;
+    padding: 0;
     #margin: auto;
 }
-#menu li{
-    float:left;
-    font:bold 12px Arial;
+
+#menu li {
+    float: left;
+    font: bold 12px Arial;
 }
-#menu a{
-    color:#666;
-    display:block;
-    height:40px;
-    line-height:36px;
-    padding:0px 10px 0px 10px;
-    background:#eee;
-    text-decoration:none;
+
+#menu a {
+    color: #666;
+    display: block;
+    height: 40px;
+    line-height: 36px;
+    padding: 0px 10px 0px 10px;
+    background: #eee;
+    text-decoration: none;
 }
-#menu a:hover{
-    color:#fff;
-    background:#888;
+
+#menu a:hover {
+    color: #fff;
+    background: #888;
 }
 
 .down {
     width: 50%;
-    padding:0;
+    padding: 0;
     margin: auto;
 }
-.down p{
+
+.down p {
     text-align: center;
     font: 12px Arial;
 }
 
 .news {
-	position:relative;
-	width: 470px;
+    position: relative;
+    width: 470px;
     height: 390px;
-	margin-top: 10px;
-	margin-left: 20px;
-	margin-bottom: 10px;
-	padding-top: 15px;
-	padding-right: 20px;
-	padding-left: 20px;
-	padding-bottom: 0px;
-	background: #f7f7f7;
-	border: 1px solid #dddddd;
-	display: inline-block;
-	float: left;
-	border-radius: 5px;
-
-
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    padding-top: 15px;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-bottom: 0px;
+    background: #f7f7f7;
+    border: 1px solid #dddddd;
+    display: inline-block;
+    float: left;
+    border-radius: 5px;
 
 }
+
+.textWiev {
+     width: 468px;
+    left: 0px;
+    bottom: 71px;
+    height: 262px;
+     position: absolute;
+    display: none;
+
+}
+
+.textWiev p{
+
+     position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #dddddd ;
+    margin: 20px;
+
+    background: 0;
+    float: left;
+
+}
+
+
+.news:hover .textWiev {
+    background-color: #000000;
+
+    display: block;
+    margin: 0px;
+
+    padding: 0px;
+    filter: alpha(opacity=75);
+
+    opacity: .75;
+    -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=75)';
+    position: absolute;
+
+}
+
 .news img {
 
-    margin:0;
-	position:absolute;
-	top: 10px;
-	left: 0px;
-	clip:rect(45px 480px 307px 0px);
+    margin: 0;
+    position: absolute;
+    top: 10px;
+    left: 0px;
+    clip: rect(45px 480px 307px 0px);
     /*width:428px;*/
     /*height: 241px;*/
     /*clip: rect(px, 70px, 70px, 0px);*/
 }
 
 
+/*----------------------------------------------Film-----------------------------------------------*/
+
+.film {
+    width: 1000px;
+
+}
+
+.film h2 {
+    margin: 0px;
+
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 26px;
+    color: #666666;
+    padding: 10px 10px 10px 20px;
+    font-weight: normal;
+    /*background: #f7f7f7;*/
+}
+
+.film.text {
+    width: 470px;
+    margin: 20px;
+    padding: 15px;
+    background: #f7f7f7;
+    border: 1px solid #eeeeee;
+    display: inline-block;
+    float: left;
+}
+
+.film p {
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #666666;
+
+    margin: 0 0 20px 0px;
+    line-height: 20px;
+    padding-top: 0px;
+    padding-right: 10px;
+    padding-left: 0;
+}
+
+#textviews {
+    border-width: 0 1px 0 0px;
+    border-style: solid;
+    color: #e8e8e8;
+
+}
+
+.aboutFilm {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    width: 1000px;
+}
+
+.line {
+    width: 960px;
+    margin: auto;
+    border-color: #ffffff;
+
+}
+
+.filmLeftText {
+    position: relative;
+    width: 700px;
+    /*padding-right: 20px;*/
+
+    display: inline-block;
+    float: left;
+    overflow: hidden;
+    /*border-radius: 5px;*/
+
+}
+
+.filmRightText {
+    position: relative;
+    width: 260px;
+    float: left;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+}
+
+.filmTextDown {
+    position: relative;
+    width: 980px;
+
+    height: 0px;
+    padding-left: 20px;
+
+}
+
+.filmTextDown p {
+    font-size: 11px;
+}
 
 .news:hover {
-	background-color: #f0f0f0;
+    background-color: #f0f0f0;
     cursor: pointer;
 }
+
 /* ------------------ NEWS HERE -------------------*/
 .news .text {
-	width: 470px;
-	margin: 20px;
-	padding: 15px;
-	background: #f7f7f7;
-	border: 1px solid #eeeeee;
-	display: inline-block;
-	float: left;
+    width: 470px;
+    margin: 20px;
+    padding: 15px;
+    background: #f7f7f7;
+    border: 1px solid #eeeeee;
+    display: inline-block;
+    float: left;
 }
+
 .news h2 {
-	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-	font-size: 18px;
-	color: #666666;
-	padding: 0 0 5px 0;
-	font-weight: normal;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    color: #666666;
+    padding: 0 0 5px 0;
+    font-weight: normal;
 }
-.news p {
+
+.news .downFilm p {
     position: relative;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 12px;
-	color: #666666;
-	line-height: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #666666;
+    line-height: 20px;
 
-	padding-top: 130px;
-	padding-right: 0;
-	padding-left: 0;
+    padding-top: 265px;
+    padding-right: 0;
+    padding-left: 0;
 }
+
 .news p span {
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 12px;
-	color: #333333;
-	line-height: 20px;
-	display: block;
-}
-.news p span a {
-	text-decoration: underline;
-}
-.news p span a:hover {
-	text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #333333;
+    line-height: 20px;
+    display: block;
 }
 
+.news p span a {
+    text-decoration: underline;
+}
+
+.news p span a:hover {
+    text-decoration: none;
+}
 
 .content {
-	width: 980px;
-	margin-top: 0;
-	margin-right: auto;
-	margin-left: auto;
-	float: left;
-	padding-bottom: 5px;
+    width: 980px;
+    margin-top: 0;
+    margin-right: auto;
+    margin-left: auto;
+    float: left;
+    padding-bottom: 5px;
 }
 

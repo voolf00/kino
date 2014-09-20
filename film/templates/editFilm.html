@@ -49,11 +49,11 @@
             <option {% for janr in film.film_jenres.all %}{% if janr.id == 23 %}selected="selected"{% endif %}{% endfor %} value="23">Реклама</option>
         </select>
 
-        <label for="text">Год выпуска: </label>
-        <input id="film_year" name="film_year" type="number" value="{{ film.film_year }}"/>
-
-        <label for="text">Награды: </label>
-        <input type="text" name="film_award" id="film_award" value="{{ film.film_award }}">
+{#        <label for="text">Год выпуска: </label>#}
+{#        <input id="film_year" name="film_year" type="number" value="{{ film.film_year }}"/>#}
+{##}
+{#        <label for="text">Награды: </label>#}
+{#        <input type="text" name="film_award" id="film_award" value="{{ film.film_award }}">#}
 
         <label for="text">Краткое описание фильма: </label>
         <input type="text" name="film_text" id="film_text" value="{{ film.film_text }}">

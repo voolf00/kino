@@ -14,14 +14,19 @@
             <div onclick="location.href='/film/get/{{ film.id }}'">
 
                 <h2>{{ film.film_name|truncatechars:50 }}</h2>
-               <div >
+
                 {# http://img.youtube.com/vi/{{ film.film_sided_id }}/0.jpg #}
                 <img id="img" src="http://img.youtube.com/vi/{{ film.film_sided_id }}/0.jpg">
+                <div class="textWiev">
+                    <p>{{ film.film_text }}</p>
                 </div>
-                <p></p>
 
+
+                <p></p>
+                <div class="downFilm">
                 <p>{{ film.film_user }} || {{ film.film_date_public }} <br> Понравилось: {{ film.film_like }}
                 </p>
+                </div>
 
             </div>
 

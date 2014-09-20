@@ -44,6 +44,8 @@ def film(request, film_id):
     args['title'] = 'film'
     args['film'] = Film.objects.get(id=film_id)
     args['username'] = auth.get_user(request).username
+    if auth.get_user(request).id == Film.objects.get(id=film_id).film_user or auth.get_user(request).is_superuser:
+        args['private'] = 'true'
     args['add_users'] = AboutCreatedUser.objects.filter(film_id=film_id).exists()
     return render_to_response("film.html", args)
 
@@ -126,8 +128,10 @@ def filmDel(request, film_id):
     if auth.get_user(request).is_superuser or auth.get_user(request).id == Film.objects.get(id=film_id).film_user_id:
         delFilmID = Film.objects.get(id=film_id)
         delCommentFilmID = Film_comment.objects.filter(film_comment_link_id=film_id)
-        delAboutFilmUsers = AboutCreatedUser.objects.get(film_id=film_id)
-        delAboutFilmUsers.delete()
+        if AboutCreatedUser.objects.filter(film_id=film_id).exists():
+
+            delAboutFilmUsers = AboutCreatedUser.objects.get(film_id=film_id)
+            delAboutFilmUsers.delete()
         delFilmID.delete()
         delCommentFilmID.delete()
         return redirect('/', {'deleted': "delete successfully"})

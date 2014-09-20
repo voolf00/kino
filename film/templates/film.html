@@ -1,34 +1,56 @@
 {% extends "main.html" %}
 {% load staticfiles %}
 {% block films_view %}
+
+
     <br>
-    <h1>{{ film.film_name }}</h1>
-    <p>{{ film.film_user }} || {{ film.film_date_public }} || {{ film.film_like }}</p>
+
+    <div class="film">
+        <div class="pagination-centered">
+
+            {% if film.film_sided_site == 2 %}
+                <iframe width="960" height="551" src="//www.youtube.com/embed/{{ film.film_sided_id }}" frameborder="0"
+                        allowfullscreen></iframe>
+            {% endif %}
+
+            {% if film.film_sided_site == 3 %}
+                <iframe src="//player.vimeo.com/video/{{ film.film_sided_id }}" width="900" height="506" frameborder="0"
+                        webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            {% endif %}
+        </div>
+        <div class="aboutFilm">
+            <div class="filmLeftText" id="textviews">
+                <h2>{{ film.film_name }}</h2>
+
+                <p>{{ film.film_text }}</p>
+            </div>
+            <div class="filmRightText">
+                {#                <table width="1px" height="200px" style="float: left"></table>#}
+                {#                <hr noshade style="height: 100px; width: 1px;">#}
+
+                <br>
+
+            </div>
+        </div>
+        <hr class="line" style="color: #ffffff;">
+        <div class="filmTextDown">
+        <p style="float: left">Добавил {{ film.film_user }} {{ film.film_date_public }}</p>
+            {% if private == 'true' %}
+                <p style=" float: right">
+                    <a href="/film/get/{{ film.id }}/edit">Редактировать</a> | <a href="/film/get/{{ film.id }}/delete">Удалить фильм</a></p>
+            {% endif %}
+        </div>
 
 
-   <ul id="menu">
-       <li><a href="" >Фильм</a></li>
-       <li><a href="/film/get/{{ film.id }}/news/">История</a> </li>
-       <li><a href="/film/get/{{ film.id }}/users/">{% if add_users %}Описание{% else %}Добавить создателей{% endif %}</a> </li>
-
-   </ul>
-
-
-<br><br>
-
-    <div class="pagination-centered">
-
-    {% if film.film_sided_site == 2 %}
-    <iframe  width="900" height="506" src="//www.youtube.com/embed/{{ film.film_sided_id }}" frameborder="0" allowfullscreen></iframe>
-
-    {% endif %}
-
-    {% if film.film_sided_site == 3 %}
-            <iframe src="//player.vimeo.com/video/{{ film.film_sided_id }}" width="900" height="506" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-    {% endif %}
+        {#        <ul id="menu">#}
+        {#            <li><a href="">Фильм</a></li>#}
+        {#            <li><a href="/film/get/{{ film.id }}/news/">История</a></li>#}
+        {#            <li><a href="/film/get/{{ film.id }}/users/">{% if add_users %}Описание{% else %}Добавить#}
+        {#                создателей{% endif %}</a></li>#}
+        {##}
+        {#        </ul>#}
     </div>
-    <br>
 
-    <a href="/film/get/{{ film.id }}/delete">Удалить фильм</a> || <a href="/film/get/{{ film.id }}/edit"> Редактировать</a>
-</div>
+
+
 {% endblock %}

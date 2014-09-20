@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'article',
     'loginsys',
     'film',
+    'name',
     'south',
     #'social_auth',
     # 'sorl.thumbnail',
