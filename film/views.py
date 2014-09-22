@@ -91,6 +91,7 @@ def editFilmUsers(request, film_id):
                 edit_form = form.save(commit=False)
                 edit_form.id = AboutCreatedUser.objects.get(film_id=film_id).id
                 edit_form.film_id_id = Film.objects.get(id=film_id).id
+
                 form.save()
                 return redirect('/film/get/'+film_id+'/users')
             else:

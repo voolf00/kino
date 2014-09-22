@@ -11,6 +11,10 @@
         <label for="id_film_name">Название Фильма:</label>
         <input id="id_film_name" maxlength="300" name="film_name" type="text" value="{{ film.film_name }}"/>
 
+         <label for="id_film_name">Название Фильма на иностранном языке:</label>
+        <input id="id_film_english_name" maxlength="300" name="film_english_name" type="text" value="{{ film.film_english_name }}"/>
+
+
         <label for="id_film_sided_id">Сслыка ролика (youtube.com, vimeo.com): </label>
     {% if film.film_sided_site == 2 %}
         <input id="id_film_sided_id" maxlength="200" name="film_sided_id" type="text" value="http://www.youtube.com/watch?v={{ film.film_sided_id }}"/>

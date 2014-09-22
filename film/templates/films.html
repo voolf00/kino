@@ -13,7 +13,12 @@
 
             <div onclick="location.href='/film/get/{{ film.id }}'">
 
-                <h2>{{ film.film_name|truncatechars:50 }}</h2>
+                <h2>{% if film.film_english_name == "" %}
+                    {{ film.film_name|truncatechars:50 }}
+                {% else %}
+                {{ film.film_name|truncatechars:25 }} / {{ film.film_english_name|truncatechars:25 }}
+                    {% endif %}
+                </h2>
 
                 {# http://img.youtube.com/vi/{{ film.film_sided_id }}/0.jpg #}
                 <img id="img" src="http://img.youtube.com/vi/{{ film.film_sided_id }}/0.jpg">

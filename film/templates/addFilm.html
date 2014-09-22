@@ -8,13 +8,16 @@
         {% csrf_token %}
 
 
-        <label for="id_film_name">Название Фильма:</label>
+        <label for="id_film_name">Название Фильма*:</label>
         <input id="id_film_name" maxlength="300" name="film_name" type="text"/>
 
-        <label for="id_film_sided_id">Сслыка ролика (youtube.com, vimeo.com): </label>
+         <label for="id_film_name">Название Фильма на иностранном языке:</label>
+        <input id="id_film_english_name" maxlength="300" name="film_english_name" type="text"/>
+
+        <label for="id_film_sided_id">Сслыка ролика (youtube.com, vimeo.com)*: </label>
         <input id="id_film_sided_id" maxlength="200" name="film_sided_id" type="text"/>
 
-        <label form="film_jenres">Жанр:</label>
+        <label form="film_jenres">Жанр*:</label>
         <select multiple="multiple" style="height: 250px; width:300px " id="film_jenres" name="film_jenres">
             <option value="1">Анимэ</option>
             <option value="2">Биография</option>
@@ -47,7 +50,7 @@
 {#        <label for="text">Награды: </label>#}
 {#        <input type="text" name="film_award" id="film_award">#}
 
-        <label for="text">Краткое описание фильма: </label>
+        <label for="text">Краткое описание фильма*: </label>
         <input type="text" name="film_text" id="film_text">
 
 

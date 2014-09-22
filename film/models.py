@@ -41,7 +41,7 @@ class Film (models.Model):
     film_jenres = models.ManyToManyField(Jenre, related_name="film", verbose_name=u"Жанр") #*
     film_text = models.TextField() #*
     film_year = models.IntegerField(default=datetime.datetime.today().year)
-    film_date_public = models.DateTimeField(default=datetime.datetime.today())
+    film_date_public = models.DateTimeField(auto_now=False, auto_now_add=True)
     film_user = models.ForeignKey(User, related_name="film", verbose_name="Пользвоатель")
     film_award = models.TextField(default="-", blank=True)
     film_like = models.IntegerField(default=0, blank=True, null=True, verbose_name="лайки")

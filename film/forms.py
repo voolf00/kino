@@ -4,7 +4,7 @@ from film.models import Film, Film_comment, AboutCreatedUser
 class FilmForm (ModelForm):
     class Meta():
         model = Film
-        fields = {'film_name',  'film_jenres',  'film_sided_id', 'film_text'}
+        fields = {'film_name',  'film_jenres',  'film_sided_id', 'film_text', 'film_english_name'}
 
 class Film_comment_Form(ModelForm):
     class Meta():
