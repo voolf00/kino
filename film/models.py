@@ -37,7 +37,7 @@ class Film (models.Model):
         verbose_name_plural = "Фильмы"
 
     film_name = models.CharField(max_length=300) #*
-    film_english_name = models.CharField(max_length=300, default="")
+    film_english_name = models.CharField(max_length=300, blank=True, default="")
     film_jenres = models.ManyToManyField(Jenre, related_name="film", verbose_name=u"Жанр") #*
     film_text = models.TextField() #*
     film_year = models.IntegerField(default=datetime.datetime.today().year)
