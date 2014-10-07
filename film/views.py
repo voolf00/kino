@@ -19,7 +19,7 @@ def indexFilm(request):
 
     all_films = Film.objects.all()
     args['username'] = auth.get_user(request).username
-    args['top_likes'] = all_films.order_by('-film_like')[0:2]  # order_by сартировка о определенному индексу
+    args['top_likes'] = all_films.order_by('-film_like')[0:9]  # order_by сартировка о определенному индексу
     args['add_films'] = all_films.order_by('-film_date_public')[0:2]
     args['title'] = 'film'
     args['articleForm'] = ArticleForm
@@ -170,13 +170,19 @@ def filmAdd(request):
                 if youtube != -1:
                     film_add.film_sided_site = 2
                     home = request.POST.get('film_sided_id').find('=')
-                    end = request.POST.get('film_sided_id').find('&')
-                    if end != -1:
-                        youtube = request.POST.get('film_sided_id')[home + 1:end]
+                    end1 = request.POST.get('film_sided_id').find('&')
+                    end2 = request.POST.get('film_sidet_id').finde('#')
+                    if end1 != -1:
+                        youtube = request.POST.get('film_sided_id')[home + 1:end1]
                         film_add.film_sided_id = youtube
-                    if end == -1:
+                    if end1 == -1 and end2 == -1:
+                        ##t=222
                         youtube = request.POST.get('film_sided_id')[home + 1:]
                         film_add.film_sided_id = youtube
+                    if end2 != -1:
+                        youtube = request.POST.get('film_sided_id')[home + 1:end2]
+                        film_add.film_sided_id = youtube
+
 
                 if vimeo != -1:
                     film_add.film_sided_site = 3
@@ -225,12 +231,16 @@ def editFilm(request, film_id):
                 if youtube != -1:
                     film_add.film_sided_site = 2
                     home = request.POST.get('film_sided_id').find('=')
-                    end = request.POST.get('film_sided_id').find('&')
-                    if end != -1:
-                        youtube = request.POST.get('film_sided_id')[home + 1:end]
+                    end1 = request.POST.get('film_sided_id').find('&')
+                    end2 = request.POST.get('film_sided_id').find('#')
+                    if end1 != -1:
+                        youtube = request.POST.get('film_sided_id')[home + 1:end1]
                         film_add.film_sided_id = youtube
-                    if end == -1:
+                    if end1 == -1:
                         youtube = request.POST.get('film_sided_id')[home + 1:]
+                        film_add.film_sided_id = youtube
+                    if end2 != -1:
+                        youtube = request.POST.get('film_sided_id')[home + 1:end2]
                         film_add.film_sided_id = youtube
 
                 if vimeo != -1:

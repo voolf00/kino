@@ -26,14 +26,14 @@
       <index name="about_created_users_cf7c7284" unique="true" columns="film_id_id"/>
     </table>
     <table name="article" schema="" catalog="" type="TABLE">
-      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
       <column name="article_title" sqlType="VARCHAR(200)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
-      <column name="article_text" sqlType="TEXT" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
-      <column name="article_likes" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
-      <column name="article_date" sqlType="DATETIME" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
       <column name="article_user_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="article_likes" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="true" jdbcType="4"/>
+      <column name="article_text" sqlType="TEXT" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="article_date" sqlType="DATETIME" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="article_img" sqlType="VARCHAR(100)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
       <primary-key columns="id"/>
-      <foreign-key name="#FAKE_article_1" columns="article_user_id" ref-table="auth_user" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
       <exported-key name="#FAKE_comments_2" table="comments" schema="" catalog="" columns="comments_article_id"/>
       <index name="article_fd472112" unique="true" columns="article_user_id"/>
     </table>
@@ -76,7 +76,6 @@
       <column name="date_joined" sqlType="DATETIME" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
       <primary-key columns="id"/>
       <exported-key name="#FAKE_Profile_1" table="Profile" schema="" catalog="" columns="profile_user_id"/>
-      <exported-key name="#FAKE_article_1" table="article" schema="" catalog="" columns="article_user_id"/>
       <exported-key name="#FAKE_comments_1" table="comments" schema="" catalog="" columns="comments_user_id"/>
       <exported-key name="#FAKE_film_comment_1" table="film_comment" schema="" catalog="" columns="film_comment_user_id"/>
     </table>

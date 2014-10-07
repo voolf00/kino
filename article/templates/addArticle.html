@@ -4,14 +4,14 @@
 
 
 
-    <form action="/articles/addarticle" method="post">
+    <form action="/articles/addarticle" method="post"  enctype="multipart/form-data">
         {% csrf_token %}
 
-
-        <label for="title">Название статьи</label>
-        <input type="text" name="article_title" id="article_title" value="{{ article_title }}">
-        <label for="text">текст статьи</label>
-        <input type="text" name="article_text" id="article_text" value="{{ article_text }}">
+        {{ form }}
+{#        <label for="title">Название статьи</label>#}
+{#        <input type="text" name="article_title" id="article_title" value="{{ article_title }}">#}
+{#        <label for="text">текст статьи</label>#}
+{#        <input type="text" name="article_text" id="article_text" value="{{ article_text }}">#}
         <input type="submit" class="bottom" value="Сохранить">
     </form>
 

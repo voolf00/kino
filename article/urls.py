@@ -1,6 +1,10 @@
 from django.conf.urls import patterns, include, url
 
 
+from  kKino import settings
+
+
+
 
 
 urlpatterns = patterns('',
@@ -16,6 +20,6 @@ urlpatterns = patterns('',
     url(r'^addcomment/(?P<article_id>\d+)', 'article.views.addComment'),
     url(r'^page/(\d+)','article.views.articles'),
 
-
-
 )
+
+

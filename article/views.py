@@ -64,7 +64,7 @@ def editArticle(request, article_id):
     arqs['is_superUser'] = auth.get_user(request).is_superuser
     if auth.get_user(request).is_superuser == 1:
         if request.POST:
-            form = ArticleForm(request.POST)
+            form = ArticleForm(request.POST, request.FILES)
             if form.is_valid():
                 article_edit = form.save( commit=False)
                 #article_edit.article_title = Article.objects.get(id = article_id).article_title
@@ -82,6 +82,7 @@ def editArticle(request, article_id):
             arqs['form'] = article_form
             arqs['article_title'] = Article.objects.get(id = article_id).article_title
             arqs['article_text'] = Article.objects.get(id = article_id).article_text
+            arqs['article_img'] = Article.objects.get(id = article_id).article_img
             return render_to_response('editArticle.html', arqs)
     else:
         arqs['error'] = 'addArticle'
@@ -95,7 +96,7 @@ def addArticle (request):
     arqs['is_superUser'] = auth.get_user(request).is_superuser
     if auth.get_user(request).is_superuser == 1:
         if request.POST:
-            form = ArticleForm(request.POST) #в скобка пишется при загрузке файлов request.FILES
+            form = ArticleForm(request.POST, request.FILES) #в скобка пишется при загрузке файлов request.FILES
             if form.is_valid():
                 article_add = form.save(commit=False)
                 # article_add.article_title = Article.objects.get(request).article_title

@@ -25,6 +25,7 @@ SECRET_KEY = 'r3ezagxy8q7=-hxo6d!v&w4ton8xhaq0*rwzj5h!=udz%v%=1h'
 DEBUG = True
 
 TEMPLATE_DEBUG = True
+THUMBNAIL_DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -44,6 +45,7 @@ INSTALLED_APPS = (
     'film',
     'name',
     'south',
+    'pilkit',
     #'social_auth',
     # 'sorl.thumbnail',
     # 'imagekit',
@@ -103,11 +105,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR,  'media')
 
 MEDIA_URL = '/media/'
 
-IMAGE_UPLOAD_DIR = os.path.join(BASE_DIR,  'media/filmImg')
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+#IMAGE_UPLOAD_DIR = os.path.join(BASE_DIR,  'media')
+
 
 # может быть писать сюда полный адресс шаблоноы
 
@@ -122,4 +126,5 @@ TEMPLATE_DIRS = (
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
     'static/',
+
 )

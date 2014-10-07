@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/static/js/jQuery/jquery-ui-1.11.1/jquery-ui.min.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
     <script src="/static/js/jQuery/jquery-2.1.1.js"></script>
+    <script src="/static/js/sapegin-jquery.mosaicflow-acf7ec8/jquery.mosaicflow.min.js"></script>
     <script src="/static/js/jQuery/jquery-ui-1.11.1/jquery-ui.min.js"></script>
     <script src="/static/js/customScript.js"></script>
     <link rel="stylesheet" type="text/css" href="{% static "css/foundation.css" %}">
@@ -14,7 +15,6 @@
 </head>
 <body class="row">
 
-<div>
 
 <div class="top-bar">
     <section class="top-bar-section">
@@ -31,7 +31,7 @@
                 {% endif %}
 
                 {% if is_superUser and title == 'article' %}
-                    <li><a href="/articles/addarticle" id="openFormArticle">добавить новость</a></li>
+                    <li><a href="/articles/addarticle" >добавить новость</a></li>
                 {% endif %}
                 <li><a href="/auth/logout"> выйти из {{ username }}</a></li>
 
@@ -54,27 +54,30 @@
     {% block image %}{% endblock %}
 
 </div>
-
-<div class="down">
+<hr>
+<div class="downMain">
 
     <p><a href="http://vk.com/cashka">Клыгач Александр</a></p>
 </div>
 
 
 {#-----------------------------------Gquery----------------------------------------------------------#}
-{% if is_superUser and title == 'article' %}
-    <form id="newArticle" action="/articles/addarticle" method="POST">
-        {% csrf_token %}
-        <label for="title">Название статьи</label>
-        <input type="text" name="article_title" id="article_title" value="{{ article_title }}">
-        <label for="text">текст статьи</label>
-        <input type="text" name="article_text" id="article_text" value="{{ article_text }}">
-        <input type="submit" class="buttom" value="Сохранить">
+{#{% if is_superUser and title == 'article' %}#}
+{#    <form id="newArticle" action="/articles/addarticle" enctype="multipart/form-data" method="POST">#}
+{#        {% csrf_token %}#}
+{#        <label for="title">Название статьи</label>#}
+{#        <input type="text" name="article_title" id="article_title" value="{{ article_title }}">#}
+{#        <label for="text">текст статьи</label>#}
+{#        <input type="text" name="article_text" id="article_text" value="{{ article_text }}">#}
+{#        <label for="photo">Фото:</label>#}
+{#        <input type="image" >#}
+{##}
+{#        <input type="submit" class="buttom" value="Сохранить">#}
+{##}
+{#    </form>#}
+    {#-----------------------------------Gquery----------------------------------------------------------#}
+{#{% endif %}#}
 
-    </form>
-{#-----------------------------------Gquery----------------------------------------------------------#}
-{% endif %}
 
-</div>
 </body>
 </html>

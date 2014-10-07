@@ -4,14 +4,15 @@
 
 
 
-    <form action="/articles/editarticle/{{ article_id }}" method="post">
+    <form action="/articles/editarticle/{{ article_id }}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        
+{#        {{ form }}#}
 
         <label for="title">Название статьи</label>
         <input type="text" name="article_title" id="article_title" value="{{ article_title }}">
         <label for="text">текст статьи</label>
         <input type="text" name="article_text" id="article_text" value="{{ article_text }}">
+        <input id="id_article_img" name="article_img" type="file">
         <input type="submit" class="bottom" value="Сохранить">
     </form>
 

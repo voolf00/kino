@@ -56,28 +56,27 @@
 }
 
 .textWiev {
-     width: 468px;
+    width: 468px;
     left: 0px;
     bottom: 71px;
     height: 262px;
-     position: absolute;
+    position: absolute;
     display: none;
 
 }
 
-.textWiev p{
+.textWiev p {
 
-     position: relative;
+    position: relative;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
-    color: #dddddd ;
+    color: #dddddd;
     margin: 20px;
 
     background: 0;
     float: left;
 
 }
-
 
 .news:hover .textWiev {
     background-color: #000000;
@@ -105,7 +104,6 @@
     /*height: 241px;*/
     /*clip: rect(px, 70px, 70px, 0px);*/
 }
-
 
 /*----------------------------------------------Film-----------------------------------------------*/
 
@@ -264,3 +262,207 @@
     padding-bottom: 5px;
 }
 
+/*index.html--------------------------------------------------------*/
+
+.index {
+
+    margin-top: 20px;
+    margin-left: 20px;
+
+}
+
+.indexfilms {
+    /*padding-left: 20px;*/
+
+    /*padding-right: 20px;*/
+    float: left;
+    position: relative;
+    width: 720px;
+
+}
+
+.indexfilms h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #888888;
+    font-size: 18px;
+}
+
+.indexSelectFilm {
+    float: left;
+    /*margin-top: 20px;*/
+    width: 720px;
+    height: 404px;
+    background: #dddddd;
+    border-radius: 5px;
+
+    position: relative;
+
+}
+
+.indexTopFilms {
+    /*border-radius: 5px;*/
+
+    margin-top: 2px;
+    margin-left: 0px;
+    float: left;
+    position: relative;
+    width: 720px;
+    /*border-radius: 5px;*/
+
+}
+
+.indexTopFilms li {
+
+    float: left;
+    position: relative;
+    /*margin-right: 2px;*/
+    width: 144px;
+    background-color: #000000;
+    list-style-type: none;
+    /*border-radius: 10px;*/
+
+}
+
+.indexTopFilms img {
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+
+    filter: grayscale(100%);
+    filter: gray; /* IE 6-9 */
+    filter: alpha(opacity=50);
+    /*border-radius: 10px;*/
+
+    opacity: .50;
+    -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=50)';
+}
+
+.indexTopFilms img:hover {
+    cursor: pointer;
+    filter: alpha(opacity=100);
+
+    opacity: 1.0;
+    -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)';
+
+}
+
+.indexTopFilms a.rollover {
+
+    display: block;
+    -webkit-filter: grayscale(0%);
+    -moz-filter: grayscale(0%);
+    -ms-filter: grayscale(0%);
+    -o-filter: grayscale(0%);
+    filter: alpha(opacity=100);
+    opacity: 1.0;
+    -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)';
+
+}
+
+.indexTopFilms #selected {
+    display: block;
+    -webkit-filter: grayscale(0%);
+    -moz-filter: grayscale(0%);
+    -ms-filter: grayscale(0%);
+    -o-filter: grayscale(0%);
+    filter: alpha(opacity=100);
+    opacity: 1.0;
+    -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)';
+}
+
+.indexArticles {
+    position: relative;
+    height: 543px;
+    width: 220px;
+    /*height: 100px;*/
+    margin-right: 0px;
+    margin-left: 20px;
+    /*padding: 10px;*/
+    /*background-color: #eeeeee;*/
+    float: left;
+
+}
+
+.indexArticles h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #888888;
+    font-size: 18px;
+}
+
+.indexArticles p {
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 12px;
+}
+
+.indexArticle {
+    /*background: #eeeeee;*/
+    padding: 5px;
+    height: 100px;
+    width: 220px;
+    float: left;
+    position: relative;
+    background: #fafafa;
+    border: 1px solid #dddddd;
+    display: inline-block;
+    /*float: left;*/
+    /*border-radius: 5px;*/
+
+}
+
+
+/*----------------- Верстка статьи---------------------------------------------------*/
+.article {
+    position: relative;
+    margin-top: 20px;
+    margin-left: 20px;
+
+
+    /*float: left;*/
+    /*margin: 0px;*/
+    padding: 0px;
+
+}
+.article_text{
+    position: relative;
+
+    width: 690px;
+    float: left;
+    display: inline-block;
+    margin-left: 20px;
+    /*padding-left: 20px;*/
+
+}
+.article_text p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+.article img{
+
+    float: left;
+    position: relative;
+    width: 250px;
+}
+
+.indexArticle:hover {
+    cursor: pointer;
+    background: #eeeeee;
+}
+
+/*Низ страницы------------------------------------------------------------------*/
+.downMain {
+    position: relative;
+    text-align: center;
+
+    padding: 0;
+    margin: 0;
+
+    width: 1000px;
+}
+
+.downMain a {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}

@@ -1,21 +1,90 @@
 {% extends 'main.html' %}
 {$ {% block films_view %}
-     <div class="columns">
-    <br>
-    {% for film in top_likes %}
-        <div class="linkblock" onclick="location.href='/film/get/{{ film.id }}'">
-        <a href="/film/get/{{ film.id}}">{{ film.film_name }}</a>
-        <p>{{ film.film_text }}</p>
-        <h0>{{ username }} || {{ film.film_date_public }} || {{ film.film_like }}</h0>
+
+    <script type="application/javascript">
+
+        function filmId(id) {
+            $('.indexTopFilm').click(
+                    $('#' + id).css({
+                        '-webkit-filter': 'grayscale(0%)',
+                        '-moz-filter': 'grayscale(0%)',
+                        '-o-filter': 'grayscale(0%)',
+{#                        'filter': 'alpha(opacity=100)',#}
+{#                        '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)',#}
+{#                        'opacity': '1.0',#}
+                        {#                        'filter': 'alpha(opacity=100)',#}
+
+                    })
+            );
+
+            $('.indexTopFilms img').not('#' + id).css({
+                '-webkit-filter': 'grayscale(100%)',
+                '-moz-filter': 'grayscale(100%)',
+                '-o-filter': 'grayscale(100%)',
+                {#                'filter': 'alpha(opacity=50)',#}
+                {#                '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=50)',#}
+                {#                'filter': 'alpha(opacity=50',#}
+                {#                'opacity': '.50'#}
+
+
+
+
+            });
+            $('.indexTopFilms img').not('#' + id).deleteCaption('filter');
+            $('.indexTopFilms img').not('#' + id).deleteCaption('opacity');
+            $('.indexTopFilms img').not('#' + id).deleteCaption('-ms-filter');
+
+            {#            $('.indexTopFilms img').not("#"+id).hover.css({#}
+            {#                '-webkit-filter': 'grayscale(100%)',#}
+            {#                '-moz-filter': 'grayscale(100%)',#}
+            {#                '-o-filter': 'grayscale(100%)',#}
+            {#                'filter': 'alpha(opacity=100)',#}
+            {#                '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)',#}
+            {#                'filter': 'alpha(opacity=100)',#}
+            {#                'opacity': '1'#}
+            {#            });#}
+
+        }
+
+
+    </script>
+
+
+    <div class="index">
+    <div class="indexfilms">
+        <h2>Лучшее за последнюю неделю</h2>
+
+        <div class="indexSelectFilm">
+
+            {#        <img class="indexImg" src="http://img.youtube.com/vi/{{ film.film_sided_id }}/maxlegdefauld.jpg">#}
+
+            {#        {% endfor %}#}
         </div>
-        <hr>
-    {% endfor %}
 
-     {% for article in articles %}
-          <div class="linkblock" onclick="location.href='/articles/get/{{ article.id }}'">
-          <a href="/articles/get/{{ article.id}}">{{ article.article_title  }}</a>
-         </div>
+        <ul class="indexTopFilms">
 
-     {% endfor %}
-     </div>
+            {% for film in top_likes %}
+                <li value="{{ film.id }}"><a href="#" onclick="filmId({{ film.id }})" class="rollover">
+                    {% if film.film_sided_site == 2 %}
+                        <img class="indexImg" id="{{ film.id }}"
+                             src="http://img.youtube.com/vi/{{ film.film_sided_id }}/mqdefault.jpg">
+                    {% endif %}
+                </a></li>
+            {% endfor %}
+        </ul>
+
+    </div>
+
+    <div class="indexArticles">
+        <h2>Новости сайта</h2>
+        {% for article in articles %}
+            <div class="indexArticle" onclick="location.href='/articles/get/{{ article.id }}'">
+                {#                <img src="">#}
+                <p href="/articles/get/{{ article.id }}">{{ article.article_title }}</p>
+            </div>
+
+        {% endfor %}
+    </div>
+
 {% endblock %}
+</div>
