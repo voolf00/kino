@@ -295,8 +295,18 @@
     background: #dddddd;
     border-radius: 5px;
 
-    position: relative;
+    /*position: absolute;*/
 
+}
+
+.topImage{
+    position: absolute;
+     /*float: left;*/
+    /*margin-top: 20px;*/
+    /*width: 720px;*/
+    height: 404px;
+    background: #dddddd;
+    border-radius: 5px;
 }
 
 .indexTopFilms {
@@ -328,7 +338,6 @@
     -moz-filter: grayscale(100%);
     -ms-filter: grayscale(100%);
     -o-filter: grayscale(100%);
-
     filter: grayscale(100%);
     filter: gray; /* IE 6-9 */
     filter: alpha(opacity=50);
@@ -347,7 +356,7 @@
 
 }
 
-.indexTopFilms a.rollover {
+.indexImg {
 
     display: block;
     -webkit-filter: grayscale(0%);

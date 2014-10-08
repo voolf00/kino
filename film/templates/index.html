@@ -2,50 +2,41 @@
 {$ {% block films_view %}
 
     <script type="application/javascript">
+        {##}
+        $test = false;
+        function test(id) {
+            if ($test == false) {
+                $('.topImage').not('#select_' + id).hide();
+                $('#select_' + id).show();
+                $('#' + id).css({
+                    '-webkit-filter': 'grayscale(0%)',
+                    '-moz-filter': 'grayscale(0%)',
+                    '-o-filter': 'grayscale(0%)'
+                });
+                $test = true;
 
-        function filmId(id) {
-            $('.indexTopFilm').click(
-                    $('#' + id).css({
-                        '-webkit-filter': 'grayscale(0%)',
-                        '-moz-filter': 'grayscale(0%)',
-                        '-o-filter': 'grayscale(0%)',
-{#                        'filter': 'alpha(opacity=100)',#}
-{#                        '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)',#}
-{#                        'opacity': '1.0',#}
-                        {#                        'filter': 'alpha(opacity=100)',#}
-
-                    })
-            );
-
-            $('.indexTopFilms img').not('#' + id).css({
-                '-webkit-filter': 'grayscale(100%)',
-                '-moz-filter': 'grayscale(100%)',
-                '-o-filter': 'grayscale(100%)',
-                {#                'filter': 'alpha(opacity=50)',#}
-                {#                '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=50)',#}
-                {#                'filter': 'alpha(opacity=50',#}
-                {#                'opacity': '.50'#}
-
-
-
-
-            });
-            $('.indexTopFilms img').not('#' + id).deleteCaption('filter');
-            $('.indexTopFilms img').not('#' + id).deleteCaption('opacity');
-            $('.indexTopFilms img').not('#' + id).deleteCaption('-ms-filter');
-
-            {#            $('.indexTopFilms img').not("#"+id).hover.css({#}
-            {#                '-webkit-filter': 'grayscale(100%)',#}
-            {#                '-moz-filter': 'grayscale(100%)',#}
-            {#                '-o-filter': 'grayscale(100%)',#}
-            {#                'filter': 'alpha(opacity=100)',#}
-            {#                '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)',#}
-            {#                'filter': 'alpha(opacity=100)',#}
-            {#                'opacity': '1'#}
-            {#            });#}
-
+            }
         }
 
+        function filmId(id) {
+
+
+            $('.indexImg').css(
+                    {
+                        '-webkit-filter': 'grayscale(100%)',
+                        '-moz-filter': 'grayscale(100%)',
+                        '-o-filter': 'grayscale(100%)'
+                    }
+            );
+            $('.topImage').not('#select_' + id).hide();
+            $('#select_' + id).show();
+            $('#' + id).css({
+                '-webkit-filter': 'grayscale(0%)',
+                '-moz-filter': 'grayscale(0%)',
+                '-o-filter': 'grayscale(0%)'
+            });
+
+        }
 
     </script>
 
@@ -55,21 +46,28 @@
         <h2>Лучшее за последнюю неделю</h2>
 
         <div class="indexSelectFilm">
+            {% for film in top_likes %}
 
-            {#        <img class="indexImg" src="http://img.youtube.com/vi/{{ film.film_sided_id }}/maxlegdefauld.jpg">#}
 
-            {#        {% endfor %}#}
+                <img class="topImage" id="select_{{ film.id }}" onload="test({{ film.id }})"
+                     src="http://img.youtube.com/vi/{{ film.film_sided_id }}/0.jpg"/>
+
+
+
+
+            {% endfor %}
         </div>
+
 
         <ul class="indexTopFilms">
 
             {% for film in top_likes %}
-                <li value="{{ film.id }}"><a href="#" onclick="filmId({{ film.id }})" class="rollover">
+                <li value="{{ film.id }}" class="rollover">
                     {% if film.film_sided_site == 2 %}
-                        <img class="indexImg" id="{{ film.id }}"
+                        <img class="indexImg" onclick="filmId({{ film.id }})" id="{{ film.id }}"
                              src="http://img.youtube.com/vi/{{ film.film_sided_id }}/mqdefault.jpg">
                     {% endif %}
-                </a></li>
+                </li>
             {% endfor %}
         </ul>
 
